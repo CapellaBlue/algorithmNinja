@@ -1,2 +1,8 @@
-# algorithmNinja
-A space to study and practice algorithms 
+# Algorithms
+
+## Arrays
+
+* Level 1
+    * Loops (forword, backward, skips)
+    * Ranges
+    * Filters
