@@ -27,8 +27,30 @@
 
 // [ ] Return the value of the sum of all values in any array
 //
+// (function() {
+//   var data = [1, 2, 3, 4, 5, 6, 7, 8];
+//
+//   function sum(a) {
+//     // Return sum
+//     console.log("inside");
+//     let sum = 0;
+//     for (var i = 0; i < a.length; i++) {
+//        sum += a[i];
+//     }
+//     return sum;
+//   }
+// console.log(sum(data));
+  // console.log("sum...");
+  // console.log("  sum(data) should be 36: " + (sum(data) === 36));
+// })();
+
+
+
+// [ ] Return the average value of any array
+//
+var average;
 (function() {
-  var data = [1, 2, 3, 4, 5, 6, 7, 8];
+  var data = [23, 17, 23, 42, 8, 2, 73, 101, 83, 92];
 
   function sum(a) {
     // Return sum
@@ -38,26 +60,17 @@
     }
     return sum;
   }
-// console.log(sum(data));
-  console.log("sum...");
-  console.log("  sum(data) should be 36: " + (sum(data) === 36));
+
+  average = function(a) {
+    // return average
+    avg = sum(a) / a.length;
+    return avg;
+
+  };
+  // console.log(average(data));
+  console.log("average...");
+  console.log("  average(data) should be 46.4: " + (average(data) === 46.4));
 })();
-
-
-
-// [ ] Return the average value of any array
-//
-// var average;
-// (function() {
-//   var data = [23, 17, 23, 42, 8, 2, 73, 101, 83, 92];
-//
-//   average = function(a) {
-//     // return average
-//   };
-//
-//   console.log("average...");
-//   console.log("  average(data) should be 46.4: " + (average(data) === 46.4));
-// })();
 
 
 
