@@ -191,39 +191,44 @@
 
 // [ ] Select a range of values in any array, return the average of the values of the range
 //
-(function() {
-  var data = [0, 1, 2, 3, 4, 5, 10, 15, 23, 54, 22, 1, 8, 4, 2, 2, 2, 0, 1];
-
-  function getAverageOfRange(a, start, end) {
-    // return average of values selected from a subarray
-    var sum = 0;
-    for (var i = start; i <= end ; i++) {
-      sum += a[i];
-    }
-    return sum / ((end - start) + 1)
-  }
-  console.log(getAverageOfRange(data, 5, 9));
-  // console.log("getAverageOfRange...");
-  // console.log("  getAverageOfRange(data, 5, 9) should be 21.4: " + (getAverageOfRange(data, 5, 9) === 21.4));
-})();
+// (function() {
+//   var data = [0, 1, 2, 3, 4, 5, 10, 15, 23, 54, 22, 1, 8, 4, 2, 2, 2, 0, 1];
+//
+//   function getAverageOfRange(a, start, end) {
+//     // return average of values selected from a subarray
+//     var sum = 0;
+//     for (var i = start; i <= end ; i++) {
+//       sum += a[i];
+//     }
+//     return sum / ((end - start) + 1)
+//   }
+//   // console.log(getAverageOfRange(data, 5, 9));
+//   console.log("getAverageOfRange...");
+//   console.log("  getAverageOfRange(data, 5, 9) should be 21.4: " + (getAverageOfRange(data, 5, 9) === 21.4));
+// })();
 
 
 
 // [ ] Copy contents of one array to another.  Do not use any built-in functions.
 //
-// (function() {
-//   var data1 = [0, 10, 20, 30, 35, 55, 75, 100];
-//   var data2 = [];
-//
-//   function copyArray(source, target) {
-//     // Copy
-//   }
-//
-//   console.log("copyArray...");
-//   console.log("  copyArray(data1, data2) should return [0, 10, 20, 30, 35, 55, 75, 100]: " + (copyArray(data1, data2).equals(data1)));
-//   console.log("  b7 should not be empty: " + (data2.length > 0));
-//   console.log("  b7 should be same as a7: " + (data2.equals(data1)));
-// })();
+(function() {
+  var data1 = [0, 10, 20, 30, 35, 55, 75, 100];
+  var data2 = [];
+
+  function copyArray(source, target) {
+    // Copy
+    for (var i = 0; i < source.length; i++) {
+       target[i] = source[i];
+
+    }
+    return target;
+  }
+  console.log(copyArray(data1, data2));
+  // console.log("copyArray...");
+  // console.log("  copyArray(data1, data2) should return [0, 10, 20, 30, 35, 55, 75, 100]: " + (copyArray(data1, data2).equals(data1)));
+  // console.log("  b7 should not be empty: " + (data2.length > 0));
+  // console.log("  b7 should be same as a7: " + (data2.equals(data1)));
+})();
 
 
 
