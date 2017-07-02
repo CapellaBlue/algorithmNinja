@@ -137,43 +137,55 @@
 
 // Return the index the value specified, or null if not found
 //
-(function() {
-  var data = ["zero", "one", "two", "three", "four", "five"];
-
-  function findIndex(a, value) {
-    // return index or null
-    for (var i = 0; i < a.length; i++) {
-       if(a[i] == value){
-          return i;
-       } else if (i == a.length -1 && a[i] != value){
-          return null;
-       }
-    }
-  }
-  // console.log(findIndex(data, "one"));
-  console.log("findIndex...");
-  console.log("  findIndex(data, 'three') should be 3: " + (findIndex(data, "three") === 3));
-  console.log("  findIndex(data, 'nine') should be null: " + (findIndex(data, "nine") === null));
-})();
+// (function() {
+//   var data = ["zero", "one", "two", "three", "four", "five"];
+//
+//   function findIndex(a, value) {
+//     // return index or null
+//     for (var i = 0; i < a.length; i++) {
+//        if(a[i] == value){
+//           return i;
+//        } else if (i == a.length -1 && a[i] != value){
+//           return null;
+//        }
+//     }
+//   }
+//   // console.log(findIndex(data, "one"));
+//   console.log("findIndex...");
+//   console.log("  findIndex(data, 'three') should be 3: " + (findIndex(data, "three") === 3));
+//   console.log("  findIndex(data, 'nine') should be null: " + (findIndex(data, "nine") === null));
+// })();
 
 
 
 // [ ] Return index of nth last odd in any array, 1 being the fist, etc., null = not found
 // [ ] Use only a single iteration
 //
-// (function() {
-//   var data = [4, 3, 8, 8, 6, 9, 10, 12, 10, 9, 0, 5, 16, 2];
-//
-//   function findNthLastOdd(a, n) {
-//     // return nth last add
-//   }
-//
-//   console.log("findNthLastOdd...");
-//   console.log("  findNthLastOdd(data, 1) should be 11: " + (findNthLastOdd(data, 1) === 11));
-//   console.log("  findNthLastOdd(data, 2) should be 9: " + (findNthLastOdd(data, 2) === 9));
-//   console.log("  findNthLastOdd(data, 4) should be 1: " + (findNthLastOdd(data, 4) === 1));
-//   console.log("  findNthLastOdd(data, 18) should be null: " + (findNthLastOdd(data, 18) === null));
-// })();
+(function() {
+  var data = [4, 3, 8, 8, 6, 9, 10, 12, 10, 9, 0, 5, 16, 2];
+
+  function findNthLastOdd(a, n) {
+    // return nth last add
+    var oddsArray = [];
+    for (var i = a.length-1; i >= 0; i--) {
+       if( (Math.trunc(a[i])) % 2 == 1){
+          oddsArray.push(i);//is this legal?
+       };
+    };
+    if (!oddsArray || n > oddsArray.length - 1) {
+       return "not found";
+    } else {
+      console.log(oddsArray);
+      return oddsArray[n-1];
+   };
+  }
+  console.log(findNthLastOdd(data, 18));
+  // console.log("findNthLastOdd...");
+  // console.log("  findNthLastOdd(data, 1) should be 11: " + (findNthLastOdd(data, 1) === 11));
+  // console.log("  findNthLastOdd(data, 2) should be 9: " + (findNthLastOdd(data, 2) === 9));
+  // console.log("  findNthLastOdd(data, 4) should be 1: " + (findNthLastOdd(data, 4) === 1));
+  // console.log("  findNthLastOdd(data, 18) should be null: " + (findNthLastOdd(data, 18) === null));
+})();
 
 
 
