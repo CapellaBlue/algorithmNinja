@@ -1,42 +1,47 @@
 // [ ] Fill an array with a value, or zero if none provided.  Return original array.
 //
-(function() {
-  var data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  function fillArray(array, value) {
-    // fill it
-     if(!value){
-        for (var i = 0; i < array.length; i++) {
-           array[i] = 0;
-        }
-        return data;
-     } else {
-        for (var i = 0; i < array.length; i++) {
-           array[i] = value;
-        }
-        return data;
-
-     }
-  }
-// console.log(fillArray(data, 5));
-  console.log("fillArray...");
-  console.log("  fillArray(data) should return all zeroes: " + (fillArray(data).equals([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])));
-  console.log("  fillArray(data, 5) should return all 5's: " + (fillArray(data, 5).equals([5, 5, 5, 5, 5, 5, 5, 5, 5, 5])));
-})();
+// (function() {
+//   var data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+//   function fillArray(array, value) {
+//     // fill it
+//      if(!value){
+//         for (var i = 0; i < array.length; i++) {
+//            array[i] = 0;
+//         }
+//         return data;
+//      } else {
+//         for (var i = 0; i < array.length; i++) {
+//            array[i] = value;
+//         }
+//         return data;
+//
+//      }
+//   }
+// // console.log(fillArray(data, 5));
+//   console.log("fillArray...");
+//   console.log("  fillArray(data) should return all zeroes: " + (fillArray(data).equals([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])));
+//   console.log("  fillArray(data, 5) should return all 5's: " + (fillArray(data, 5).equals([5, 5, 5, 5, 5, 5, 5, 5, 5, 5])));
+// })();
 
 
 
 // [ ] Return the value of the sum of all values in any array
 //
-// (function() {
-//   var data = [1, 2, 3, 4, 5, 6, 7, 8];
-//
-//   function sum(a) {
-//     // Return sum
-//   }
-//
-//   console.log("sum...");
-//   console.log("  sum(data) should be 36: " + (sum(data) === 36));
-// })();
+(function() {
+  var data = [1, 2, 3, 4, 5, 6, 7, 8];
+
+  function sum(a) {
+    // Return sum
+    let sum = 0;
+    for (var i = 0; i < a.length; i++) {
+       sum += a[i];
+    }
+    return sum;
+  }
+// console.log(sum(data));
+  console.log("sum...");
+  console.log("  sum(data) should be 36: " + (sum(data) === 36));
+})();
 
 
 
