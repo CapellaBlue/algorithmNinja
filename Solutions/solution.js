@@ -76,6 +76,14 @@
 
 //  [ ] Return the median of any array that has both an odd and even number of values
 //
+// **************************************
+// **************************************
+// **************************************
+// I think your data3 solution is incorrect. my answer is 10.045...(9.99+10.1)/2 --because for median, the array needs to be in order, no?
+// **************************************
+// **************************************
+// **************************************
+
 (function() {
    var data1 = [1, 2, 4, 4, 6, 7, 8, 9, 12];
    var data2 = [4, 5, 9, 10, 11, 15, 22, 20, 21, 21];
@@ -90,26 +98,25 @@
 
       for (var i = 0; i < a.length; i++) {
          //determin if odd and even are present
-         if(a[i] % 2 == 1){
+         if( (Math.trunc(a[i])) % 2 == 1){
             odd = true;
-         } else {
+         } else if( (Math.trunc(a[i])) % 2 == 0){
             even = true;
          };
+         //sort array
          for (var j = 0; j < (a.length - i - 1); j++) {
             if (a[j] > a[j+1]) {
                var temp = a[j];
                a[j] = a[j+1];
                a[j+1] = temp;
-            }
+            };
          };
       };
-
       if(even && odd){
          var m;
          if(a.length % 2 == 1){
             m = a[(a.length - 1)/2]
          } else {
-            console.log(a[(a.length/2)]);
             m = (a[((a.length/2)-1)] + a[(a.length/2)])/2;
          }
          return m
@@ -119,11 +126,11 @@
    };
    // console.log(median(data1));
    // console.log(median(data2));
-   console.log(median(data3));
-  // console.log("median...");
-  // console.log("  median(data1) should be 6: " + (median(data1) === 6));
-  // console.log("  median(data2) should be 13: " + (median(data2) === 13));
-  // console.log("  median(data3) should be 15.09: " + (median(data3) === 15.09));
+   // console.log(median(data3));
+  console.log("median...");
+  console.log("  median(data1) should be 6: " + (median(data1) === 6));
+  console.log("  median(data2) should be 13: " + (median(data2) === 13));
+  console.log("  median(data3) should be 15.09: " + (median(data3) === 15.09));
 })();
 
 
