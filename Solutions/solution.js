@@ -161,46 +161,51 @@
 // [ ] Return index of nth last odd in any array, 1 being the fist, etc., null = not found
 // [ ] Use only a single iteration
 //
-(function() {
-  var data = [4, 3, 8, 8, 6, 9, 10, 12, 10, 9, 0, 5, 16, 2];
-
-  function findNthLastOdd(a, n) {
-    // return nth last add
-    var oddsArray = [];
-    for (var i = a.length-1; i >= 0; i--) {
-       if( (Math.trunc(a[i])) % 2 == 1){
-          oddsArray.push(i);//is this legal?
-       };
-    };
-    if (!oddsArray || n > oddsArray.length - 1) {
-       return "not found";
-    } else {
-      console.log(oddsArray);
-      return oddsArray[n-1];
-   };
-  }
-  console.log(findNthLastOdd(data, 18));
-  // console.log("findNthLastOdd...");
-  // console.log("  findNthLastOdd(data, 1) should be 11: " + (findNthLastOdd(data, 1) === 11));
-  // console.log("  findNthLastOdd(data, 2) should be 9: " + (findNthLastOdd(data, 2) === 9));
-  // console.log("  findNthLastOdd(data, 4) should be 1: " + (findNthLastOdd(data, 4) === 1));
-  // console.log("  findNthLastOdd(data, 18) should be null: " + (findNthLastOdd(data, 18) === null));
-})();
+// (function() {
+//   var data = [4, 3, 8, 8, 6, 9, 10, 12, 10, 9, 0, 5, 16, 2];
+//
+//   function findNthLastOdd(a, n) {
+//     // return nth last add
+//     var oddsArray = [];
+//     for (var i = a.length-1; i >= 0; i--) {
+//        if( (Math.trunc(a[i])) % 2 == 1){
+//           oddsArray.push(i);//is this legal?
+//        };
+//     };
+//     if (!oddsArray || n > oddsArray.length - 1) {
+//        return "not found";
+//     } else {
+//       console.log(oddsArray);
+//       return oddsArray[n-1];
+//    };
+//   }
+//   // console.log(findNthLastOdd(data, 18));
+//   console.log("findNthLastOdd...");
+//   console.log("  findNthLastOdd(data, 1) should be 11: " + (findNthLastOdd(data, 1) === 11));
+//   console.log("  findNthLastOdd(data, 2) should be 9: " + (findNthLastOdd(data, 2) === 9));
+//   console.log("  findNthLastOdd(data, 4) should be 1: " + (findNthLastOdd(data, 4) === 1));
+//   console.log("  findNthLastOdd(data, 18) should be null: " + (findNthLastOdd(data, 18) === null));
+// })();
 
 
 
 // [ ] Select a range of values in any array, return the average of the values of the range
 //
-// (function() {
-//   var data = [0, 1, 2, 3, 4, 5, 10, 15, 23, 54, 22, 1, 8, 4, 2, 2, 2, 0, 1];
-//
-//   function getAverageOfRange(a, start, end) {
-//     // return average of values selected from a subarray
-//   }
-//
-//   console.log("getAverageOfRange...");
-//   console.log("  getAverageOfRange(data, 5, 9) should be 21.4: " + (getAverageOfRange(data, 5, 9) === 21.4));
-// })();
+(function() {
+  var data = [0, 1, 2, 3, 4, 5, 10, 15, 23, 54, 22, 1, 8, 4, 2, 2, 2, 0, 1];
+
+  function getAverageOfRange(a, start, end) {
+    // return average of values selected from a subarray
+    var sum = 0;
+    for (var i = start; i <= end ; i++) {
+      sum += a[i];
+    }
+    return sum / ((end - start) + 1)
+  }
+  console.log(getAverageOfRange(data, 5, 9));
+  // console.log("getAverageOfRange...");
+  // console.log("  getAverageOfRange(data, 5, 9) should be 21.4: " + (getAverageOfRange(data, 5, 9) === 21.4));
+})();
 
 
 
