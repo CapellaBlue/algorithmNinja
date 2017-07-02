@@ -239,8 +239,20 @@
 
   function swap(a, indexSource, indexTarget) {
     // Swap
-  }
-
-  console.log("swap...");
-  console.log("  swap(data, 1, 11) should have swapped: " + (swap(data, 1, 11).equals([1, 31, 3, 5, 7, 11, 13, 17, 19, 23, 29, 2, 37])));
+    var index1;
+    var index2;
+    for (var i = 0; i < a.length; i++) {
+      if(a[i] == indexSource){
+         index1 = i;
+      } else if (a[i] == indexTarget){
+         index2 = i;
+      };
+   };
+   data[index1] = indexTarget;
+   data[index2] = indexSource;
+   return data;
+};
+   console.log(swap(data, 1, 11));
+  // console.log("swap...");
+  // console.log("  swap(data, 1, 11) should have swapped: " + (swap(data, 1, 11).equals([1, 31, 3, 5, 7, 11, 13, 17, 19, 23, 29, 2, 37])));
 })();
