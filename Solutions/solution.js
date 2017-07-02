@@ -48,48 +48,83 @@
 
 // [ ] Return the average value of any array
 //
-var average;
-(function() {
-  var data = [23, 17, 23, 42, 8, 2, 73, 101, 83, 92];
-
-  function sum(a) {
-    // Return sum
-    let sum = 0;
-    for (var i = 0; i < a.length; i++) {
-       sum += a[i];
-    }
-    return sum;
-  }
-
-  average = function(a) {
-    // return average
-    avg = sum(a) / a.length;
-    return avg;
-
-  };
-  // console.log(average(data));
-  console.log("average...");
-  console.log("  average(data) should be 46.4: " + (average(data) === 46.4));
-})();
+// var average;
+// (function() {
+//   var data = [23, 17, 23, 42, 8, 2, 73, 101, 83, 92];
+//
+//   function sum(a) {
+//     // Return sum
+//     let sum = 0;
+//     for (var i = 0; i < a.length; i++) {
+//        sum += a[i];
+//     }
+//     return sum;
+//   }
+//
+//   average = function(a) {
+//     // return average
+//     avg = sum(a) / a.length;
+//     return avg;
+//
+//   };
+//   // console.log(average(data));
+//   console.log("average...");
+//   console.log("  average(data) should be 46.4: " + (average(data) === 46.4));
+// })();
 
 
 
 //  [ ] Return the median of any array that has both an odd and even number of values
 //
-// (function() {
-//   var data1 = [1, 2, 4, 4, 6, 7, 8, 9, 12];
-//   var data2 = [4, 5, 9, 10, 11, 15, 22, 20, 21, 21];
-//   var data3 = [10.1, 9.99, 12.32, 17.86, 9.1, 0];
-//
-//   function median(a) {
-//     // return median
-//   }
-//
-//   console.log("median...");
-//   console.log("  median(data1) should be 6: " + (median(data1) === 6));
-//   console.log("  median(data2) should be 13: " + (median(data2) === 13));
-//   console.log("  median(data3) should be 15.09: " + (median(data3) === 15.09));
-// })();
+(function() {
+   var data1 = [1, 2, 4, 4, 6, 7, 8, 9, 12];
+   var data2 = [4, 5, 9, 10, 11, 15, 22, 20, 21, 21];
+   var data3 = [10.1, 9.99, 12.32, 17.86, 9.1, 0];
+
+   function median(a) {
+      // return median
+      var low = a[0];
+      var high = a[0];
+      var even = false;
+      var odd = false;
+
+      for (var i = 0; i < a.length; i++) {
+         //determin if odd and even are present
+         if(a[i] % 2 == 1){
+            odd = true;
+         } else {
+            even = true;
+         };
+         for (var j = 0; j < (a.length - i - 1); j++) {
+            if (a[j] > a[j+1]) {
+               var temp = a[j];
+               a[j] = a[j+1];
+               a[j+1] = temp;
+            }
+         };
+      };
+
+      if(even && odd){
+         var m;
+         if(a.length % 2 == 1){
+            m = a[(a.length - 1)/2]
+         } else {
+            console.log(a[(a.length/2)]);
+            m = (a[((a.length/2)-1)] + a[(a.length/2)])/2;
+         }
+         return m
+      } else {
+         return "Even and odd not present";
+      };
+   };
+   // console.log(median(data1));
+   // console.log(median(data2));
+   console.log(median(data3));
+  // console.log("median...");
+  // console.log("  median(data1) should be 6: " + (median(data1) === 6));
+  // console.log("  median(data2) should be 13: " + (median(data2) === 13));
+  // console.log("  median(data3) should be 15.09: " + (median(data3) === 15.09));
+})();
 
 
 
