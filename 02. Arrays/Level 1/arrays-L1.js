@@ -69,7 +69,7 @@ if(!Array.prototype.equals) {
 
  NOTES:
 
-   [ ] Do not use any functional wrappers (Map, Reduce, etc.)
+   [ ] Do not use any functional wrappers (Map, Reduce, etc.) that hide iterations from you
    [ ] Within any function below that you complete, it's okay to call into another function
         that you've completed here.
 
@@ -141,7 +141,11 @@ var average;
   console.log("median...");
   console.log("  median(data1) should be 6: " + (median(data1) === 6));
   console.log("  median(data2) should be 13: " + (median(data2) === 13));
-  console.log("  median(data3) should be 15.09: " + (median(data3) === 15.09));
+  console.log("  median(data3) should be 10.045: " + (median(data3.sort(numberSort)) === 10.045));
+
+  function numberSort(a, b) {
+    return a - b;
+  }
 })();
 
 

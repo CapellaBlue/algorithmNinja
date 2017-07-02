@@ -223,11 +223,11 @@
     }
     return target;
   }
-  console.log(copyArray(data1, data2));
-  // console.log("copyArray...");
-  // console.log("  copyArray(data1, data2) should return [0, 10, 20, 30, 35, 55, 75, 100]: " + (copyArray(data1, data2).equals(data1)));
-  // console.log("  b7 should not be empty: " + (data2.length > 0));
-  // console.log("  b7 should be same as a7: " + (data2.equals(data1)));
+  // console.log(copyArray(data1, data2));
+  console.log("copyArray...");
+  console.log("  copyArray(data1, data2) should return [0, 10, 20, 30, 35, 55, 75, 100]: " + (copyArray(data1, data2).equals(data1)));
+  console.log("  b7 should not be empty: " + (data2.length > 0));
+  console.log("  b7 should be same as a7: " + (data2.equals(data1)));
 })();
 
 
