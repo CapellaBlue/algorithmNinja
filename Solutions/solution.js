@@ -84,70 +84,77 @@
 // **************************************
 // **************************************
 
-(function() {
-   var data1 = [1, 2, 4, 4, 6, 7, 8, 9, 12];
-   var data2 = [4, 5, 9, 10, 11, 15, 22, 20, 21, 21];
-   var data3 = [10.1, 9.99, 12.32, 17.86, 9.1, 0];
-
-   function median(a) {
-      // return median
-      var low = a[0];
-      var high = a[0];
-      var even = false;
-      var odd = false;
-
-      for (var i = 0; i < a.length; i++) {
-         //determin if odd and even are present
-         if( (Math.trunc(a[i])) % 2 == 1){
-            odd = true;
-         } else if( (Math.trunc(a[i])) % 2 == 0){
-            even = true;
-         };
-         //sort array
-         for (var j = 0; j < (a.length - i - 1); j++) {
-            if (a[j] > a[j+1]) {
-               var temp = a[j];
-               a[j] = a[j+1];
-               a[j+1] = temp;
-            };
-         };
-      };
-      if(even && odd){
-         var m;
-         if(a.length % 2 == 1){
-            m = a[(a.length - 1)/2]
-         } else {
-            m = (a[((a.length/2)-1)] + a[(a.length/2)])/2;
-         }
-         return m
-      } else {
-         return "Even and odd not present";
-      };
-   };
-   // console.log(median(data1));
-   // console.log(median(data2));
-   // console.log(median(data3));
-  console.log("median...");
-  console.log("  median(data1) should be 6: " + (median(data1) === 6));
-  console.log("  median(data2) should be 13: " + (median(data2) === 13));
-  console.log("  median(data3) should be 15.09: " + (median(data3) === 15.09));
-})();
+// (function() {
+//    var data1 = [1, 2, 4, 4, 6, 7, 8, 9, 12];
+//    var data2 = [4, 5, 9, 10, 11, 15, 22, 20, 21, 21];
+//    var data3 = [10.1, 9.99, 12.32, 17.86, 9.1, 0];
+//
+//    function median(a) {
+//       // return median
+//       var low = a[0];
+//       var high = a[0];
+//       var even = false;
+//       var odd = false;
+//
+//       for (var i = 0; i < a.length; i++) {
+//          //determin if odd and even are present
+//          if( (Math.trunc(a[i])) % 2 == 1){
+//             odd = true;
+//          } else if( (Math.trunc(a[i])) % 2 == 0){
+//             even = true;
+//          };
+//          //sort array
+//          for (var j = 0; j < (a.length - i - 1); j++) {
+//             if (a[j] > a[j+1]) {
+//                var temp = a[j];
+//                a[j] = a[j+1];
+//                a[j+1] = temp;
+//             };
+//          };
+//       };
+//       if(even && odd){
+//          var m;
+//          if(a.length % 2 == 1){
+//             m = a[(a.length - 1)/2]
+//          } else {
+//             m = (a[((a.length/2)-1)] + a[(a.length/2)])/2;
+//          }
+//          return m
+//       } else {
+//          return "Even and odd not present";
+//       };
+//    };
+//    // console.log(median(data1));
+//    // console.log(median(data2));
+//    // console.log(median(data3));
+//   console.log("median...");
+//   console.log("  median(data1) should be 6: " + (median(data1) === 6));
+//   console.log("  median(data2) should be 13: " + (median(data2) === 13));
+//   console.log("  median(data3) should be 15.09: " + (median(data3) === 15.09));
+// })();
 
 
 
 // Return the index the value specified, or null if not found
 //
-// (function() {
-//   var data = ["zero", "one", "two", "three", "four", "five"];
-//
-//   function findIndex(a, value) {
-//     // return index or null
-//   }
-//
-//   console.log("findIndex...");
-//   console.log("  findIndex(data, 'three') should be 3: " + (findIndex(data, "three") === 3));
-//   console.log("  findIndex(data, 'nine') should be null: " + (findIndex(data, "nine") === null));
-// })();
+(function() {
+  var data = ["zero", "one", "two", "three", "four", "five"];
+
+  function findIndex(a, value) {
+    // return index or null
+    for (var i = 0; i < a.length; i++) {
+       if(a[i] == value){
+          return i;
+       } else if (i == a.length -1 && a[i] != value){
+          return null;
+       }
+    }
+  }
+  // console.log(findIndex(data, "one"));
+  console.log("findIndex...");
+  console.log("  findIndex(data, 'three') should be 3: " + (findIndex(data, "three") === 3));
+  console.log("  findIndex(data, 'nine') should be null: " + (findIndex(data, "nine") === null));
+})();
 
 
 
