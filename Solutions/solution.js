@@ -18,9 +18,9 @@
 //      }
 //   }
 // // console.log(fillArray(data, 5));
-//   console.log("fillArray...");
-//   console.log("  fillArray(data) should return all zeroes: " + (fillArray(data).equals([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])));
-//   console.log("  fillArray(data, 5) should return all 5's: " + (fillArray(data, 5).equals([5, 5, 5, 5, 5, 5, 5, 5, 5, 5])));
+// console.log("fillArray...");
+// console.log("  filleArray(data) should return all zeroes: " + (fillArray(data).equals([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])));
+// console.log("  fillArray(data, 5) should return all 5's: " + (fillArray(data, 5).equals([5, 5, 5, 5, 5, 5, 5, 5, 5, 5])));
 // })();
 
 
@@ -40,8 +40,8 @@
 //     return sum;
 //   }
 // console.log(sum(data));
-  // console.log("sum...");
-  // console.log("  sum(data) should be 36: " + (sum(data) === 36));
+//   console.log("sum...");
+//   console.log("  sum(data) should be 36: " + (sum(data) === 36));
 // })();
 
 
@@ -178,7 +178,7 @@
 //       console.log(oddsArray);
 //       return oddsArray[n-1];
 //    };
-//   }
+// };
 //   // console.log(findNthLastOdd(data, 18));
 //   console.log("findNthLastOdd...");
 //   console.log("  findNthLastOdd(data, 1) should be 11: " + (findNthLastOdd(data, 1) === 11));
@@ -211,36 +211,36 @@
 
 // [ ] Copy contents of one array to another.  Do not use any built-in functions.
 //
-(function() {
-  var data1 = [0, 10, 20, 30, 35, 55, 75, 100];
-  var data2 = [];
-
-  function copyArray(source, target) {
-    // Copy
-    for (var i = 0; i < source.length; i++) {
-       target[i] = source[i];
-
-    }
-    return target;
-  }
-  // console.log(copyArray(data1, data2));
-  console.log("copyArray...");
-  console.log("  copyArray(data1, data2) should return [0, 10, 20, 30, 35, 55, 75, 100]: " + (copyArray(data1, data2).equals(data1)));
-  console.log("  b7 should not be empty: " + (data2.length > 0));
-  console.log("  b7 should be same as a7: " + (data2.equals(data1)));
-})();
+// (function() {
+//   var data1 = [0, 10, 20, 30, 35, 55, 75, 100];
+//   var data2 = [];
+//
+//   function copyArray(source, target) {
+//     // Copy
+//     for (var i = 0; i < source.length; i++) {
+//        target[i] = source[i];
+//
+//     }
+//     return target;
+//   }
+//   // console.log(copyArray(data1, data2));
+//   // console.log("copyArray...");
+//   // console.log("  copyArray(data1, data2) should return [0, 10, 20, 30, 35, 55, 75, 100]: " + (copyArray(data1, data2).equals(data1)));
+//   // console.log("  b7 should not be empty: " + (data2.length > 0));
+//   // console.log("  b7 should be same as a7: " + (data2.equals(data1)));
+// })();
 
 
 
 // [ ] Swap two elements in an array.  Do not use any built-in functions.
 //
-// (function() {
-//   var data = [1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37];
-//
-//   function swap(a, indexSource, indexTarget) {
-//     // Swap
-//   }
-//
-//   console.log("swap...");
-//   console.log("  swap(data, 1, 11) should have swapped: " + (swap(data, 1, 11).equals([1, 31, 3, 5, 7, 11, 13, 17, 19, 23, 29, 2, 37])));
-// })();
+(function() {
+  var data = [1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37];
+
+  function swap(a, indexSource, indexTarget) {
+    // Swap
+  }
+
+  console.log("swap...");
+  console.log("  swap(data, 1, 11) should have swapped: " + (swap(data, 1, 11).equals([1, 31, 3, 5, 7, 11, 13, 17, 19, 23, 29, 2, 37])));
+})();
