@@ -172,19 +172,19 @@
 //           oddsArray.push(i);//is this legal?
 //        };
 //     };
-//     if (!oddsArray || n > oddsArray.length - 1) {
-//        return "not found";
+//     if (!oddsArray || n > oddsArray.length) {
+//        return null;
 //     } else {
 //       console.log(oddsArray);
 //       return oddsArray[n-1];
 //    };
 // };
-//   // console.log(findNthLastOdd(data, 18));
-//   console.log("findNthLastOdd...");
-//   console.log("  findNthLastOdd(data, 1) should be 11: " + (findNthLastOdd(data, 1) === 11));
-//   console.log("  findNthLastOdd(data, 2) should be 9: " + (findNthLastOdd(data, 2) === 9));
-//   console.log("  findNthLastOdd(data, 4) should be 1: " + (findNthLastOdd(data, 4) === 1));
-//   console.log("  findNthLastOdd(data, 18) should be null: " + (findNthLastOdd(data, 18) === null));
+//   console.log(findNthLastOdd(data, 18));
+  // console.log("findNthLastOdd...");
+  // console.log("  findNthLastOdd(data, 1) should be 11: " + (findNthLastOdd(data, 1) === 11));
+  // console.log("  findNthLastOdd(data, 2) should be 9: " + (findNthLastOdd(data, 2) === 9));
+  // console.log("  findNthLastOdd(data, 4) should be 1: " + (findNthLastOdd(data, 4) === 1));
+  // console.log("  findNthLastOdd(data, 18) should be null: " + (findNthLastOdd(data, 18) === null));
 // })();
 
 
@@ -239,18 +239,11 @@
 
   function swap(a, indexSource, indexTarget) {
     // Swap
-    var index1;
-    var index2;
-    for (var i = 0; i < a.length; i++) {
-      if(a[i] == indexSource){
-         index1 = i;
-      } else if (a[i] == indexTarget){
-         index2 = i;
-      };
-   };
-   data[index1] = indexTarget;
-   data[index2] = indexSource;
-   return data;
+    var temp = data[indexSource];
+    data[indexSource] = data[indexTarget];
+    data[indexTarget] = temp;
+
+    return data
 };
    console.log(swap(data, 1, 11));
   // console.log("swap...");
