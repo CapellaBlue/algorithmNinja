@@ -254,8 +254,8 @@ var average;
       ;
     }
     ;
-    if (!oddsArray || n > oddsArray.length - 1) {
-      return "not found";
+    if (!oddsArray || n > oddsArray.length) {
+      return null;
     }
     else {
       console.log(oddsArray);
