@@ -85,8 +85,22 @@ if(!Array.prototype.equals) {
 //
 (function() {
   var data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  function fillArray(a, value) {
+  function fillArray(array, value) {
     // fill it
+    if(!value) {
+      for (var i = 0; i < array.length; i++) {
+        array[i] = 0;
+      }
+
+      return data;
+    }
+    else {
+      for (var i = 0; i < array.length; i++) {
+        array[i] = value;
+      }
+
+      return data;
+    }
   }
 
   console.log("fillArray...");
@@ -98,11 +112,20 @@ if(!Array.prototype.equals) {
 
 // [ ] Return the value of the sum of all values in any array
 //
+var sum;
 (function() {
   var data = [1, 2, 3, 4, 5, 6, 7, 8];
 
-  function sum(a) {
+  sum = function sum(a) {
     // Return sum
+    console.log("inside");
+    let sum = 0;
+
+    for (var i = 0; i < a.length; i++) {
+      sum += a[i];
+    }
+
+    return sum;
   }
 
   console.log("sum...");
@@ -118,7 +141,8 @@ var average;
   var data = [23, 17, 23, 42, 8, 2, 73, 101, 83, 92];
 
   average = function(a) {
-    // return average
+    avg = sum(a) / a.length;
+    return avg;
   };
 
   console.log("average...");
@@ -136,6 +160,46 @@ var average;
 
   function median(a) {
     // return median
+    var low = a[0];
+    var high = a[0];
+    var even = false;
+    var odd = false;
+
+    for (var i = 0; i < a.length; i++) {
+      // determine if odd and even are present
+      if ((Math.trunc(a[i])) % 2 == 1) {
+        odd = true;
+      }
+      else if ((Math.trunc(a[i])) % 2 == 0) {
+        even = true;
+      }
+      ;
+      //sort array
+      for (var j = 0; j < (a.length - i - 1); j++) {
+        if (a[j] > a[j + 1]) {
+          var temp = a[j];
+          a[j] = a[j + 1];
+          a[j + 1] = temp;
+        }
+        ;
+      }
+      ;
+    }
+    ;
+    if (even && odd) {
+      var m;
+      if (a.length % 2 == 1) {
+        m = a[(a.length - 1) / 2]
+      }
+      else {
+        m = (a[((a.length / 2) - 1)] + a[(a.length / 2)]) / 2;
+      }
+      return m
+    }
+    else {
+      return "Even and odd not present";
+    }
+    ;
   }
 
   console.log("median...");
@@ -157,6 +221,14 @@ var average;
 
   function findIndex(a, value) {
     // return index or null
+    for (var i = 0; i < a.length; i++) {
+      if (a[i] == value) {
+        return i;
+      }
+      else if (i == a.length - 1 && a[i] != value) {
+        return null;
+      }
+    }
   }
 
   console.log("findIndex...");
@@ -174,6 +246,21 @@ var average;
 
   function findNthLastOdd(a, n) {
     // return nth last add
+    var oddsArray = [];
+    for (var i = a.length - 1; i >= 0; i--) {
+      if ((Math.trunc(a[i])) % 2 == 1) {
+        oddsArray.push(i);//is this legal?
+      }
+      ;
+    }
+    ;
+    if (!oddsArray || n > oddsArray.length - 1) {
+      return "not found";
+    }
+    else {
+      console.log(oddsArray);
+      return oddsArray[n - 1];
+    }
   }
 
   console.log("findNthLastOdd...");
@@ -191,7 +278,11 @@ var average;
   var data = [0, 1, 2, 3, 4, 5, 10, 15, 23, 54, 22, 1, 8, 4, 2, 2, 2, 0, 1];
 
   function getAverageOfRange(a, start, end) {
-    // return average of values selected from a subarray
+    var sum = 0;
+    for (var i = start; i <= end; i++) {
+      sum += a[i];
+    }
+    return sum / ((end - start) + 1)
   }
 
   console.log("getAverageOfRange...");
@@ -208,6 +299,10 @@ var average;
 
   function copyArray(source, target) {
     // Copy
+    for (var i = 0; i < source.length; i++) {
+      target[i] = source[i];
+    }
+    return target;
   }
 
   console.log("copyArray...");
@@ -225,7 +320,19 @@ var average;
 
   function swap(a, indexSource, indexTarget) {
     // Swap
-  }
+    var index1;
+    var index2;
+    for (var i = 0; i < a.length; i++) {
+      if(a[i] == indexSource){
+        index1 = i;
+      } else if (a[i] == indexTarget){
+        index2 = i;
+      };
+    };
+    data[index1] = indexTarget;
+    data[index2] = indexSource;
+    return data;
+  };
 
   console.log("swap...");
   console.log("  swap(data, 1, 11) should have swapped: " + (swap(data, 1, 11).equals([1, 31, 3, 5, 7, 11, 13, 17, 19, 23, 29, 2, 37])));
