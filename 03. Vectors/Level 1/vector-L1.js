@@ -102,6 +102,7 @@ Vector.prototype.insert = function(index, value) {
   if (this.capacity === this.length || (this.capacity/2)-1 == this.length){
      Vector.prototype.resize();
   }
+  this.length = this.storage.length;
 };
 
 
@@ -110,23 +111,26 @@ Vector.prototype.add = function(value) {
   if (this.capacity === this.length || (this.capacity/2)-1 == this.length){
      Vector.prototype.resize();
   }
-
+  this.length = this.storage.length;
 };
 
 
 Vector.prototype.remove = function(index) {
   if (index === undefined || index === null) {
-    delete this.storage[this.length];
+     var index = this.length;
+     console.log(index);
+    this.storage.splice(this.length, 1);
+    console.log(this.length);
   }
   else {
     this.storage.splice(index, 1);
   }
   this.length = this.storage.length;
-
-  console.log(v.capacity);
+  console.log(v.storage);
   if (this.capacity === this.length || (this.capacity/2)-1 == this.length){
      Vector.prototype.resize();
   }
+  console.log(v.toArray());
 };
 
 
@@ -141,15 +145,19 @@ Vector.prototype.set = function(index, value) {
 
 
 Vector.prototype.resize = function() {
-
-   console.log("capacity " + v.capacity);
-  
-  var tempArr = [];
+  //reassigning to new array
+  var temp = new Array();
   for (var i = 0; i < this.length; i++) {
      tempArr[i] = this.storage[i];
   }
   this.storage = tempArr;
-  this.capacity = this.capacity * 2;
+  //expanding capacity
+  if(this.storage.length >= this.capacity){
+     this.capacity = this.capacity * 2;
+  } else if (this.storage.length == this.capacity/2 - 1){
+     this.capacity = this.capacity/2;
+ }
+
 };
 
 
