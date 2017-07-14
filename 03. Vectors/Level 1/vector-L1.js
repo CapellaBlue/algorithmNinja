@@ -83,7 +83,7 @@ if(!Array.prototype.equals) {
 
   NOTE: Don't worry about edge-cases, error checking, or bounds checking
   NOTE: Some built-in functions are already used.  Do not use any in the code you add
-  NOTE: Satisfy all the tests.  Do not modify or comment of them out.
+  NOTE: Satisfy all the tests.  Do not modify or comment any of them out.
 
 */
 
@@ -98,11 +98,19 @@ var Vector = function(initialCapacity, maxCapacity) {
 
 Vector.prototype.insert = function(index, value) {
   this.storage.splice(index, 0, value);
+  this.length = this.storage.length;
+  if (this.capacity === this.length || (this.capacity/2)-1 == this.length){
+     Vector.prototype.resize();
+  }
 };
 
 
 Vector.prototype.add = function(value) {
   this.storage[this.length++] = value;
+  if (this.capacity === this.length || (this.capacity/2)-1 == this.length){
+     Vector.prototype.resize();
+  }
+
 };
 
 
@@ -112,6 +120,12 @@ Vector.prototype.remove = function(index) {
   }
   else {
     this.storage.splice(index, 1);
+  }
+  this.length = this.storage.length;
+
+  console.log(v.capacity);
+  if (this.capacity === this.length || (this.capacity/2)-1 == this.length){
+     Vector.prototype.resize();
   }
 };
 
@@ -127,8 +141,17 @@ Vector.prototype.set = function(index, value) {
 
 
 Vector.prototype.resize = function() {
-  // ...
+
+   console.log("capacity " + v.capacity);
+  
+  var tempArr = [];
+  for (var i = 0; i < this.length; i++) {
+     tempArr[i] = this.storage[i];
+  }
+  this.storage = tempArr;
+  this.capacity = this.capacity * 2;
 };
+
 
 
 Vector.prototype.toArray = function() {
@@ -207,6 +230,3 @@ console.log("  Insert 0 at v[0] should be [0, 1, 3, 4, 5, 6, 7]: " + (v.toArray(
 console.log("Remove from beginning");
 v.remove(0);
 console.log("  v.remove(0) should be [1, 3, 4, 5, 6, 7]: " + v.toArray().equals([1, 3, 4, 5, 6, 7]));
-
-
-
