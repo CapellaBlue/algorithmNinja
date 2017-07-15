@@ -95,26 +95,27 @@ var Vector = function(initialCapacity, maxCapacity) {
 };
 
 
-
+// -----------------------
 Vector.prototype.insert = function(index, value) {
   this.storage.splice(index, 0, value);
-  this.length = this.storage.length;
+
   if (this.capacity === this.length || (this.capacity/2)-1 == this.length){
      Vector.prototype.resize();
   }
   this.length = this.storage.length;
 };
 
-
+// ------------------------
 Vector.prototype.add = function(value) {
   this.storage[this.length++] = value;
+  console.log("capacity = " + this.capacity);
   if (this.capacity === this.length || (this.capacity/2)-1 == this.length){
      Vector.prototype.resize();
   }
   this.length = this.storage.length;
 };
 
-
+// ------------------------
 Vector.prototype.remove = function(index) {
   if (index === undefined || index === null) {
      var index = this.length;
@@ -133,25 +134,26 @@ Vector.prototype.remove = function(index) {
   console.log(v.toArray());
 };
 
-
+// -----------------------
 Vector.prototype.get = function(index) {
   return this.storage[index];
 };
 
-
+// ------------------------
 Vector.prototype.set = function(index, value) {
   this.storage[index] = value;
 };
 
-
+// -------------------------
 Vector.prototype.resize = function() {
   //reassigning to new array
-  var temp = new Array();
+  var tempArr = [];
   for (var i = 0; i < this.length; i++) {
      tempArr[i] = this.storage[i];
   }
   this.storage = tempArr;
   //expanding capacity
+  console.log("capacity = " + this.capacity);
   if(this.storage.length >= this.capacity){
      this.capacity = this.capacity * 2;
   } else if (this.storage.length == this.capacity/2 - 1){
@@ -160,8 +162,7 @@ Vector.prototype.resize = function() {
 
 };
 
-
-
+// ------------------------
 Vector.prototype.toArray = function() {
   var result = [];
 
@@ -173,7 +174,7 @@ Vector.prototype.toArray = function() {
 };
 
 
-
+// -------------------------
 var v = new Vector();
 
 console.log("Initialize");
