@@ -102,11 +102,30 @@ var Vector = function(initialCapacity, maxCapacity) {
 
 Vector.prototype.insert = function(index, value) {
   // ...
+  this.newStorage = new Array(this.storage.length);
+  // this.newStorage = [];
+  this.newStorage[index] = value;
+  for (var i = 0; i < this.storage.length; i++) {
+     if (this.storage[i] < this.storage[index]){
+        this.newStorage[i] = this.storage[i];
+     } else if (this.storage[i] > this.storage[index]){
+       this.newStorage[i] = this.storage[i-1];
+     }
+  }
+  console.log('grab last ' + this.storage[this.newStorage.length]);
+
+   this.newStorage[this.newStorage.length] = this.storage[this.storage.length-1];
+  console.log(this.newStorage);
+   this.storage = this.newStorage;
+   console.log('length of this.storage = ' + this.storage.length);//always is 8
+   return this.storage;
 };
 
 
 Vector.prototype.add = function(value) {
   // ...
+  this.storage[this.length++] = value;
+  console.log(this.storage);
 };
 
 
@@ -169,7 +188,7 @@ run(true, function() {
     console.log("  v.toArray() should be [0, 1, 2]: " + (v.toArray().equals([0, 1, 2])));
   });
 
-  run(false, function() {
+  run(true, function() {
     console.log("Add 2 more");
     v.add(3);
     v.add(4);
@@ -177,27 +196,27 @@ run(true, function() {
     console.log("  v.toArray() should be [0, 1, 2, 3, 4]: " + (v.toArray().equals([0, 1, 2, 3, 4])));
   });
 
-  run(false, function() {
+  run(true, function() {
     console.log("Insert 1 at v[3]");
     v.insert(3, 2.5);
     console.log("  v.length should be 6: " + (v.length === 6));
     console.log("  v.toArray() should be [0, 1, 2, 2.5, 3, 4]: " + (v.toArray().equals([0, 1, 2, 2.5, 3, 4])));
   });
 
-  run(false, function() {
+  run(true, function() {
     console.log("Remove v[3]");
     v.remove(3);
     console.log("  v.length should be 5: " + (v.length === 5));
     console.log("  v.toArray() should be [0, 1, 2, 3, 4]: " + (v.toArray().equals([0, 1, 2, 3, 4])));
   });
 
-  run(false, function() {
+  run(true, function() {
     console.log("Set v[2] = 15");
     v.set(2, 15);
     console.log("  v.get(2) should be 15: " + (v.get(2) === 15));
   });
 
-  run(false, function() {
+  run(true, function() {
     console.log("Add 3 more");
     v.add(5);
     v.add(6);
@@ -206,26 +225,26 @@ run(true, function() {
     console.log("  v.capacity should be 8: " + (v.capacity === 8));
   });
 
-  run(false, function() {
+  run(true, function() {
     console.log("Add 1 more to fill capacity");
     v.add(8);
     console.log("  v.length should be 9: " + (v.length === 9));
     console.log("  v.capacity should be 16: " + (v.capacity === 16));
   });
 
-  run(false, function() {
+  run(true, function() {
     console.log("Remove from the end");
     v.remove();
     console.log("  v.toArray() should be [0, 1, 15, 3, 4, 5, 6, 7]: " + (v.toArray().equals([0, 1, 15, 3, 4, 5, 6, 7])));
   });
 
-  run(false, function() {
+  run(true, function() {
     console.log("Remove v[2]");
     v.remove(2);
     console.log("  v.toArray() should be [0, 1, 3, 4, 5, 6, 7]: " + (v.toArray().equals([0, 1, 3, 4, 5, 6, 7])));
   });
 
-  run(false, function() {
+  run(true, function() {
     console.log("Remove the first");
     v.remove(0);
     console.log("  v.toArray() should be [1, 3, 4, 5, 6, 7]: " + (v.toArray().equals([1, 3, 4, 5, 6, 7])));
