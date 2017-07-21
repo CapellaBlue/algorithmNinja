@@ -102,22 +102,20 @@ var Vector = function(initialCapacity, maxCapacity) {
 
 Vector.prototype.insert = function(index, value) {
   // ...
-  this.newStorage = new Array(this.storage.length);
+  this.newStorage = new Array(this.storage.length++);
   // this.newStorage = [];
-  this.newStorage[index] = value;
-  for (var i = 0; i < this.storage.length; i++) {
-     if (this.storage[i] < this.storage[index]){
-        this.newStorage[i] = this.storage[i];
-     } else if (this.storage[i] > this.storage[index]){
-       this.newStorage[i] = this.storage[i-1];
-     }
+  for (var i = index + 1; i < this.storage.length; i++) {
+     this.newStorage[i] = this.storage[i-1];
   }
-  console.log('grab last ' + this.storage[this.newStorage.length]);
-
-   this.newStorage[this.newStorage.length] = this.storage[this.storage.length-1];
-  console.log(this.newStorage);
+  this.newStorage[index] = value;
+  for (var i = 0; i < index; i++) {
+     this.newStorage[i] = this.storage[i];
+  }
+  console.log("this.newStorage at end = " + this.newStorage);
    this.storage = this.newStorage;
-   console.log('length of this.storage = ' + this.storage.length);//always is 8
+
+   console.log('length of this.storage = ' + this.storage.length);
+
    return this.storage;
 };
 
