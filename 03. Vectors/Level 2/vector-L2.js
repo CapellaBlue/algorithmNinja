@@ -135,6 +135,7 @@ Vector.prototype.remove = function(index) {
    if (this.length === this.capacity/2-1) {
       this.resize("half");
    }
+   //start at index to be removed. reassign to i+1
    for (var i = index; i < this.length; i++) {
       this.storage[i] = this.storage[i+1];
    }
@@ -164,7 +165,6 @@ Vector.prototype.resize = function(action) {
 
       this.storage = tempStorage;
    } else if (action === "half"){
-      // this.capacity /= 2;
       this.capacity = Math.floor(this.capacity / 2);
       var tempStorage = new Array(this.capacity);
 
