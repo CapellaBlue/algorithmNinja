@@ -184,8 +184,6 @@ Vector.prototype.toArray = function() {
    for (var i=0; i<this.length; i++) {
       result[i] = this.storage[i];
    }
-
-   console.log("result = " + result);
    return result;
 };
 
